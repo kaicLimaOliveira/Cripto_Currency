@@ -71,19 +71,16 @@ const emit = defineEmits(["listen", "unlisten"]);
 
 <style scoped>
   .table-responsive {
-    min-height: .01%;
-    overflow-y: scroll;
+      min-height: .01%;
+      overflow-x: auto;
+      
   }
+  table {
+    width: 100%;
+  }
+  
 
-  @media screen and (max-width: 767px) {
-    .table-responsive {
-        width: 100%;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-    }
+ 
+    
 
-    table {
-      width: 100%;
-    }
-}
 </style>
