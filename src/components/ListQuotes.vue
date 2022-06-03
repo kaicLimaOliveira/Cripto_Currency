@@ -70,17 +70,25 @@ const emit = defineEmits(["listen", "unlisten"]);
 </script>
 
 <style scoped>
-  .table-responsive {
-      min-height: .01%;
-      overflow-x: auto;
-      
-  }
-  table {
-    width: 100%;
-  }
-  
+.table-responsive {
+  min-height: 0.01%;
+  overflow-x: auto;
+}
 
- 
-    
+td:first-child,
+th:first-child {
+  position: sticky;
+  left: -3px;
+  background-color: #fff;
+  padding: 0 10px;
+}
 
+th,
+td {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
 </style>
