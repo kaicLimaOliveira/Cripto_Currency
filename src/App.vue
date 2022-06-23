@@ -31,10 +31,11 @@
 <script async setup lang="ts">
 import { reactive, onMounted } from "vue";
 import api from "@/services/api";
+import { IData } from "@/interfaces/ICurrency";
 import ListQuotes from "@/components/ListQuotes.vue";
 import WatchListQuotes from "@/components/WatchListQuotes.vue";
 
-const data = reactive({
+const data: IData = reactive({
   quotes: {},
   listenQuotes: [],
 });
@@ -43,7 +44,6 @@ onMounted(async () => {
   const response = await api.all();
   data.quotes = response.data;
 });
-
 
 function onListen(code: string) {
   data.listenQuotes.push(code);

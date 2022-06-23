@@ -25,13 +25,9 @@ import {
 import api from "@/services/api";
 
 const CURRENT_UPDATE_TIME = 10;
-
-const props = defineProps({
-  listenQuotes: {
-    type: Array,
-    required: true,
-  },
-});
+const props = defineProps<{
+  listenQuotes: [];
+}>();
 
 const emit = defineEmits(["unlisten"]);
 
@@ -39,12 +35,12 @@ const quotes = ref({});
 const nextUpdatedTime = ref(CURRENT_UPDATE_TIME);
 const interval = ref();
 const methods = reactive({
-  async refresh() {
+  async refresh(): Promise<void> {
     const { data } = await api.listen(props.listenQuotes);
     quotes.value = data;
   },
 
-  restartInterval() {
+  restartInterval(): void {
     clearInterval(interval.value);
     nextUpdatedTime.value = CURRENT_UPDATE_TIME;
     interval.value = setInterval(() => {
